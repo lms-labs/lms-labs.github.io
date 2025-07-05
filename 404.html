@@ -8,16 +8,16 @@
     <meta name="theme-color" content="#000000" />
     <meta name="description" content="Web site created using create-react-app" />
     <title>LMS</title>
-    <script type="text/javascript">
-        // Single Page Apps for GitHub Pages
-        // https://github.com/rafgraph/spa-github-pages
-        // 이 스크립트는 GitHub Pages에서 페이지를 새로고침할 때 발생하는 404 오류를 방지합니다.
-        // URL을 루트 경로로 다시 작성하고, 클라이언트 측 라우터가 나머지 처리를 담당하도록 합니다.
+    <script>
+        // GitHub Pages SPA fallback redirect
         (function () {
-            var redirect = sessionStorage.getItem('redirect');
-            if (redirect) {
+            if (!sessionStorage.redirect) {
+                sessionStorage.redirect = location.href;
+                location.replace('/');
+            } else {
+                const redirect = sessionStorage.redirect;
                 sessionStorage.removeItem('redirect');
-                window.history.replaceState(null, null, redirect);
+                history.replaceState(null, null, redirect);
             }
         })();
     </script>
